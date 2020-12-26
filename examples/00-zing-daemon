@@ -1,0 +1,43 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use lib 'definitions';
+
+use Zing::Cartridge;
+use Zing::Daemon;
+
+=pod explain
+
+- zing-daemon takes an app (zing process) and backgrounds it
+- i.e. runs the zing process in the background
+- zing is a Watcher which loads (and forks) a kernel
+- the kernel process loads the app (from its scheme)
+- the kernel is also a watcher and maintains the specified number of forks
+- the supervisor tree is zing -> kernel -> app
+
+=cut
+
+my $d = Zing::Daemon->new(
+  cartridge => Zing::Cartridge->new(
+    name => 'myapp-sleep',
+    scheme => ['MyApp::Sleep', [], 4],
+    appdir => '.',
+    piddir => '.',
+  )
+);
+
+$d->start;
+
+my $pid = do './myapp-sleep.pid';
+
+warn "killing forked process ($pid) in 5 secs";
+
+sleep 5;
+
+kill 'TERM', $pid;
+
+warn "killed process ($pid)";
+
+unlink 'myapp-sleep.pid';
