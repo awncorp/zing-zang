@@ -19,11 +19,11 @@ Zing::Zang
 
 =tagline
 
-Process Implementation
+Callback-based Actor
 
 =abstract
 
-Callback-based Zing Process Implementation
+Callback-based Actor Implementation
 
 =cut
 
