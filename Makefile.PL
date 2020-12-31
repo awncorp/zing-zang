@@ -7,7 +7,7 @@ use 5.014;
 use ExtUtils::MakeMaker;
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Callback-based Zing Processes",
+  "ABSTRACT" => "Callback-based Actor Implementation",
   "AUTHOR" => "Al Newkirk <awncorp\@cpan.org>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0
