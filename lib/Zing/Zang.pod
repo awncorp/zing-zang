@@ -3,13 +3,13 @@
 
 =head1 NAME
 
-Zing::Zang - Process Implementation
+Zing::Zang - Callback-based Actor
 
 =cut
 
 =head1 ABSTRACT
 
-Process Implementation
+Callback-based Actor Implementation
 
 =cut
 
